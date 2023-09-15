@@ -12,3 +12,9 @@ const apellido = "Larger"
 
 const nombrecompleto = nombre + " " + apellido
 console.log(nombrecompleto);
+
+let docente = 'Tomas' , age = 25 , asignaturas = ['IA','Seguridad Informatica']
+
+console.log(n)
+
+var n = 10
