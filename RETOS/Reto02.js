@@ -4,7 +4,7 @@ let nota3 = prompt('¿Escribe tu tercera nota:?',0);
 
 n1 = nota1 / 100 * 40
 n2 = nota2 / 100 * 30
-n2 = nota3 / 100 * 30
+n3 = nota3 / 100 * 30
 
 promedio = n1 + n2 + n3
 
