@@ -10,8 +10,8 @@ promedio = n1 + n2 + n3
 
 if (promedio < 3.95) {
     alert(`Su promedio es de${promedio} ha reprobado la asignatura`);
-} else if (3.95 < promedio < 4.94) {
-    alert(`Su promedio es de ${promedio} usted va a examen`);
-} else {
+} else if (4.95 <= promedio){
     alert(`Su promedio es de ${promedio} usted se exime de la asignatura`);
+} else {
+    alert(`Su promedio es de ${promedio} usted va a examen`);
 }
