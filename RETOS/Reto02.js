@@ -8,7 +8,9 @@ n3 = nota3 / 100 * 30
 
 promedio = n1 + n2 + n3
 
-if (promedio < 3.95) {
+if (nota1 > 7 || nota2 > 7 || nota3 > 7) {
+    alert("Usted incluyo una nota no valida");
+} else if (promedio < 3.95) {
     alert(`Su promedio es de${promedio} ha reprobado la asignatura`);
 } else if (4.95 <= promedio){
     alert(`Su promedio es de ${promedio} usted se exime de la asignatura`);
