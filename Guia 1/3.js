@@ -1,8 +1,8 @@
 while (true) {
 let contraseña = prompt("Ingrese una contraseña:");
-let especial = /[!@#\$%\^&\*\(\)_\+{}\[\]:;<>,\.\?~\\\-]/;
-let mayuscula = /[A-Z]/;
-let numero = /\d/;
+const especial = /[!@#\$%\^&\*\(\)_\+{}\[\]:;<>,\.\?~\\\-]/;
+const mayuscula = /[A-Z]/;
+const numero = /\d/;
 if (contraseña.length < 8) {
     alert("Su contraseña debe tener al menos 8 caracteres de longitud.");
     } else if (!mayuscula.test(contraseña)) {
