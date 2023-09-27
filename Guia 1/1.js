@@ -1,5 +1,4 @@
-while (true)
-{
+while (true) {
 let numero = prompt("Ingrese un número entero positivo:");
 
 if (isNaN(numero) || numero <= 0) {

@@ -1,5 +1,4 @@
-while (true)
-{
+while (true) {
 let frase = prompt("Escriba una frase:");
 
 if (isFinite(frase)) {

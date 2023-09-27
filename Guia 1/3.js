@@ -1,5 +1,4 @@
-while (true)
-{
+while (true) {
 let contraseña = prompt("Ingrese una contraseña:");
 let especial = /[!@#\$%\^&\*\(\)_\+{}\[\]:;<>,\.\?~\\\-]/;
 let mayuscula = /[A-Z]/;
