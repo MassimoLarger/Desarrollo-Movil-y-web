@@ -8,5 +8,6 @@ if (isFinite(frase)) {
     let cortar = frase.split(" ");
     let Contador = cortar.length;
     alert(`Su frase es \"${frase}\" y tiene ${Contador} palabras`);
+    break;
     }
 }
