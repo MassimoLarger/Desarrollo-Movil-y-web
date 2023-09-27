@@ -16,7 +16,3 @@ if (contraseña.length < 8) {
         break;
         }
 }
-
-
-
-
