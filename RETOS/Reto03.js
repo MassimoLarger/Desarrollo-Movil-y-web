@@ -4,7 +4,6 @@ function calcularPropina() {
   
     if (isNaN(montoBoleta) || isNaN(porcentajePropina)) {
       alert('Por favor, ingrese números válidos.');
-      return;
     }
   
     let propina = (montoBoleta * porcentajePropina) / 100;
