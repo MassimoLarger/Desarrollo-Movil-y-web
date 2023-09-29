@@ -32,5 +32,4 @@ let stockCritico = false;
     if (!stockCritico) {
         alert("El inventario está en buen estado. Todos los productos tienen un stock igual o superior a 1000 unidades.");
     }
-
-    alert(inventario);
+console.log(inventario);
