@@ -3,9 +3,9 @@ console.log('#### Sentencias if/else ####')
 let year = prompt('¿En que año se creo JavaScript?','');
 
 if (year = 1995) {
-    alert('¡Correcto, en el año 1995!')
+    alert('¡Correcto, en el año 1995!');
 } else {
-    alert('¡Respuesta Incorrecta!')
+    alert('¡Respuesta Incorrecta!');
 }
 
 console.log('#### Sentencias elif ####')
@@ -17,5 +17,5 @@ if (edad <= 18) {
 } else if (edad = 17) {
     alert('¡Correcto, pero no puede manejar solo un menor de 17 años!');
 } else {
-    alert('¡Respuesta Incorrecta! No puede ser menos a 17 años')
+    alert('¡Respuesta Incorrecta! No puede ser menos a 17 años');
 }
