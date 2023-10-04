@@ -76,3 +76,16 @@ console.log(usuario);
 
 console.log("#### Tipo de Dato ####");
 console.log(typeof nombre);
+
+console.log("#### Transformacion dato a numero ####");
+console.log(typeof edad);
+edad = String(edad)
+console.log(typeof edad);
+
+let stock = '1000'
+
+console.log("#### Transformacion numero a dato ####");
+console.log(typeof stock);
+edad = Number(edad)
+console.log(typeof stock);
+console.log(stock);
