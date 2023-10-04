@@ -12,4 +12,4 @@ function calcularPropina() {
     let resultadosDiv = document.getElementById('resultados');
     resultadosDiv.innerHTML = '<p>Monto de la propina: ' + propina.toFixed(2) + ' CLP</p>' +
                               '<p>Total a pagar (con propina): ' + totalPagar.toFixed(2) + ' CLP</p>';
-  }
+}
