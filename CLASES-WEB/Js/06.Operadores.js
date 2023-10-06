@@ -67,5 +67,3 @@ console.log("#### Decremento ####");
 
 contador--;
 console.log(contador);
-
-console.log("#### Modificación/Asignación variables ####");
