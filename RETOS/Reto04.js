@@ -2,8 +2,9 @@ function calculadoraIMC() {
     let nombre = document.getElementById('name').value;
     let peso = parseInt(document.getElementById('weight').value);
     let altura = parseInt(document.getElementById('height').value);
-    let activitadF = parseInt(document.getElementById('activity').value)
-  
+    let activitadF = document.getElementById('activity').value;
+    alert(activitadF);
+      
     if (isFinite(nombre) || isNaN(peso) || isNaN(altura)) {
       alert('Por favor, ingrese números válidos.');
     }
@@ -26,7 +27,7 @@ function calculadoraIMC() {
     if (Clasificacion === "Bajo peso" || Clasificacion === "Sobrepeso" || Clasificacion === "Obesidad") {
       var Estado = "Necesita Atención Especializada";
     } else {
-      var Clasificacion = "Estado Nutricional Adecuado";
+      var Estado = "Estado Nutricional Adecuado";
     }
 
     let resultadosDiv = document.getElementById('resultados');
