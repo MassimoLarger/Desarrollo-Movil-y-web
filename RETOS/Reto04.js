@@ -30,7 +30,7 @@ function calculadoraIMC() {
     }
 
     let resultadosDiv = document.getElementById('resultados');
-    resultadosDiv.innerHTML = '<p><h1>Resultados para ' + nombre + ' </h1> </p>'+
+    resultadosDiv.innerHTML = '<p><h1>Resultados para ' + nombre + ' </h1></p>'+
                               '<p>IMC: ' + IMC.toFixed(2) + ' </p>' +
                               '<p>Clasificación: ' + Clasificacion + ' </p>' +
                               '<p>Gasto Energético Diario: ' + GEnergetico.toFixed(2) + ' kcal </p>' +
