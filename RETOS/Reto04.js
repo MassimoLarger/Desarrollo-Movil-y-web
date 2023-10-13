@@ -4,7 +4,7 @@ function calculadoraIMC() {
     let altura = parseInt(document.getElementById('height').value);
     let activitadF = document.getElementById('activity').value;
 
-    if (isFinite(nombre) || isNaN(peso) || isNaN(altura)) {
+    if (isFinite(nombre) || isNaN(peso) || isNaN(altura) || peso > 0 || altura > 0) {
       alert('Por favor, ingrese números válidos.');
     }
     
