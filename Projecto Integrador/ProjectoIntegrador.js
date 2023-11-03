@@ -3,12 +3,14 @@ var indicePreguntaActual = 0;
 var puntuacion = 0;
 var vidas = 5; // Ahora se establece en 5 vidas
 let nombre;
-let categoria;
+let timeLeft = 15;  // Tiempo inicial
+let timerInterval;
+let timerElement = document.getElementById('timer');
+var juegoFinalizado = false;
+
 
 function cargarPreguntas() {
-  // Obtener el valor seleccionado del elemento de selección
-  let categoria = document.getElementById('category').value;
-
+  let categoria= localStorage.getItem('categoria');
   // Construir la URL basada en la categoría seleccionada
   let url = `${categoria}.json`;
 
@@ -34,13 +36,40 @@ function cargarPregunta(indicePregunta) {
   var opcionesHTML = '';
   respuestaCorrectaActual = preguntaActual.respuesta_correcta; // Guardar la respuesta correcta actual
   opcionesAleatorias.forEach(function (opcion, index) {
+    // Asigna clases específicas a los botones (por ejemplo, button1, button2, etc.)
+    var buttonClass = 'button' + (index + 1);
     opcionesHTML += `
       <li>
-        <button onclick="responderTrivia(this)" data-es-correcta="${respuestaCorrectaActual.includes(opcion)}">${opcion}</button>
+        <button class="${buttonClass}" onclick="responderTrivia(this)" data-es-correcta="${respuestaCorrectaActual.includes(opcion)}">
+        ${opcion}</button>
       </li>`;
   });
-  document.getElementById('options').innerHTML = opcionesHTML;  
+  document.getElementById('options').innerHTML = opcionesHTML;
+  
+  // Aquí inicia el código del temporizador
+  if (timerInterval) {
+      clearInterval(timerInterval);
+      timeLeft = 15;  // Reiniciar el tiempo a 10 segundos
+  }
+    timerElement.textContent = timeLeft;
+    timerInterval = setInterval(updateTimer, 1000);
 }
+
+function updateTimer() {
+  if (juegoFinalizado) {
+    clearInterval(timerInterval);
+    return;
+  }
+
+  timeLeft -= 1;
+  timerElement.textContent = timeLeft;
+
+  if (timeLeft <= 0) {
+    clearInterval(timerInterval);
+    responderTrivia(false);  // Tratar la respuesta como incorrecta si se agota el tiempo
+  }
+}
+
 
 // Función para aleatorizar un arreglo utilizando el algoritmo de Fisher-Yates
 function shuffleArray(array) {
@@ -65,51 +94,65 @@ function iniciarJuego() {
 }
 
 function responderTrivia(botonSeleccionado) {
-  // Remover la clase 'seleccionado' de todos los botones
-  var botones = document.querySelectorAll('#options button');
-  botones.forEach(function (boton) {
-    boton.classList.remove('seleccionado');
-  });
+  // Si se ha seleccionado un botón, remover la clase 'seleccionado' de todos los botones
+  if (botonSeleccionado) {
+    var botones = document.querySelectorAll('#options button');
+    botones.forEach(function (boton) {
+      boton.classList.remove('seleccionado');
+    });
 
-  // Agregar la clase 'seleccionado' al botón seleccionado
-  botonSeleccionado.classList.add('seleccionado');
+    // Agregar la clase 'seleccionado' al botón seleccionado
+    botonSeleccionado.classList.add('seleccionado');
+  }
 
-  // Extraer la respuesta correcta del atributo data
-  var esCorrecta = botonSeleccionado.getAttribute('data-es-correcta') === 'true';
+  // Si no se seleccionó ningún botón (temporizador agotado), considerar la respuesta como incorrecta
+  var esCorrecta = botonSeleccionado ? botonSeleccionado.getAttribute('data-es-correcta') === 'true' : false;
 
   // Obtener la respuesta correcta guardada previamente
   var respuestaCorrecta = respuestaCorrectaActual[0]; // Solo necesitamos la primera respuesta correcta
-  
-  // Obtener la opción seleccionada después de hacer clic en un botón
-  var opcionSeleccionada = botonSeleccionado.innerText;
 
-  // Verificar si el jugador ha seleccionado una respuesta
-  if (opcionSeleccionada !== null) {
-    var respuestaContainer = document.getElementById('respuesta');
+  var opcionSeleccionada = botonSeleccionado ? botonSeleccionado.innerText : "Tiempo agotado";
 
-    if (esCorrecta) {
-      respuestaContainer.innerText = '¡Respuesta correcta!';
-      puntuacion += 10;
-    } else {
-      respuestaContainer.innerText = 'Respuesta incorrecta. La respuesta correcta es: ' + respuestaCorrecta;
-      vidas--;
-    }
+  var respuestaContainer = document.getElementById('respuesta');
+  var respuestaTexto = document.createElement('p');
+  respuestaTexto.className = 'respuesta-texto';
+  respuestaTexto.innerText = esCorrecta ? '¡Respuesta correcta!' : 'Respuesta incorrecta. La respuesta correcta es: ' + respuestaCorrecta;
 
-    actualizarInfoJuego();
+  respuestaContainer.appendChild(respuestaTexto);
 
-    // Cargar la siguiente pregunta después de un breve retraso
+  // Agregar la clase oculto después de un tiempo específico (por ejemplo, 3 segundos)
+  setTimeout(function () {
+    respuestaTexto.classList.add('oculto');
+    // Eliminar el elemento de la respuesta después de ocultarlo
     setTimeout(function () {
-      // Verificar si quedan más preguntas
-      if (indicePreguntaActual < preguntas.length - 1) {
-        // Cargar la siguiente pregunta
-        indicePreguntaActual++;
-        cargarPregunta(indicePreguntaActual);
-      } else {
-        // Fin del juego
-        mostrarResultadoFinal();
-      }
-    }, 1000);  // Esperar 1 segundo (1000 milisegundos) antes de cargar la siguiente pregunta
+      respuestaContainer.removeChild(respuestaTexto);
+    }, 500);
+  }, 1000);
+
+  // Actualizar la puntuación y vidas
+  if (esCorrecta) {
+    puntuacion += 100;
+  } else {
+    vidas--;
   }
+
+  actualizarInfoJuego();
+
+  // Cargar la siguiente pregunta después de un breve retraso
+  setTimeout(function () {
+    // Verificar si quedan más preguntas
+    if (indicePreguntaActual < preguntas.length - 1) {
+      // Cargar la siguiente pregunta
+      indicePreguntaActual++;
+      cargarPregunta(indicePreguntaActual);
+    } else {
+      // Fin del juego
+      mostrarResultadoFinal();
+    }
+  }, 1000);  // Esperar 1 segundo (1000 milisegundos) antes de cargar la siguiente pregunta
+
+  // Detener el temporizador cuando el jugador responda
+  clearInterval(timerInterval);
 }
 
 function actualizarInfoJuego() {
@@ -124,26 +167,20 @@ function actualizarInfoJuego() {
 }
 
 function mostrarResultadoFinal() {
-  // Lógica para mostrar el resultado final, puedes mostrar un mensaje,
-  // lanzar un alert, o cualquier otra acción que desees.
-  alert(`¡Juego terminado!\nJugador ${nombre} ha obtenido una puntuación de: ${puntuacion}`);
-  reiniciarJuego();
-  // Recargar la página para reiniciar el juego
-  window.location.reload();
-}
+  juegoFinalizado = true;  // Establecer que el juego ha finalizado
+  clearInterval(timerInterval); // Añade esta línea para detener el temporizador
 
-function reiniciarJuego() {
-  indicePreguntaActual = 0;
-  puntuacion = 0;
-  vidas = 5; // Reiniciar las vidas a 5
-  cargarPreguntas();
-  actualizarInfoJuego();
-}
+  // Ocultar contenedor de información de juego
+  document.getElementById('info-container').style.display = 'none';
 
-function shuffleArray(array) {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
-  }
-  return array;
+  // Ocultar contenedor de juego
+  document.getElementById('trivia-container').style.display = 'none';
+
+  // Mostrar contenedor de fin de juego
+  document.getElementById('fin-juego').style.display = 'block';
+
+  // Mostrar información del jugador
+  document.getElementById('nombreResultado').innerText = nombre;
+  document.getElementById('puntuacionResultado').innerText = puntuacion;
+  document.getElementById('vidasResultado').innerText = vidas;
 }

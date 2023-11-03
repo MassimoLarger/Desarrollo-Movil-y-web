@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#000000" />
+    <title>Juego de Trivia</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans%3A600%2C900"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A600%2C900"/>
+    <link rel="stylesheet" href="./css/styles/bienvenida.css"/>
+</head>
+
+<body>
+    <div class="bienvenida-MBp">
+    <div class="group-2-9J2">
+        <img class="logo-CvW" src="./css/assets/logo.png" onclick="volverAPagina()"/>
+        <p class="preguntopa-LG2">PREGUNTOPÍA</p>
+      </div>
+    <main>
+        <section id="inicio">
+            <div id="info-container">
+                <img class="image8" src="./css/assets/CerebroT.png"/>
+            </div>
+
+        <form id="form-container">
+            <p class="text3">Nombre:</p>
+            <input class="label" type="text" id="name" placeholder="Ingrese su nombre"/>
+            
+            <div class="group-3-7yc" onclick="cargarPreguntas()">
+                <p>Iniciar Juego</p>
+            </div>
+        </form>
+
+        <div id="trivia-container" style="display: none;">
+            <p class="text5" id="question"></p>
+            <p class="text">Puntuación: <span id="puntuacion">0</span></p>
+            <p class="text2">Vidas: <span id="vidas">5</span></p>
+            <!-- Cambiar a botones y manejar la respuesta directamente -->
+            <div class="reloj-emY" id="timer">15</div>
+            <div id="options"></div>
+            <div id="respuesta"></div>
+        </div>
+
+        <div id="fin-juego" style="display: none;">
+            <p class="text6">¡Juego terminado!</p>
+            <img class="image9" src="./css/assets/CerebroWin.png"/>
+            <p class="text7">Nombre: <span id="nombreResultado"></span></p>
+            <p class="text8">Puntuación: <span id="puntuacionResultado"></span></p>
+            <p class="text9">Vidas Restantes: <span id="vidasResultado"></span></p>
+            <button class="button"onclick="volverAPagina()">Volver al Inicio</button>
+        </div>
+    </main>
+        
+        <script>
+            function volverAPagina() {
+            window.location.href = "./css/bienvenida.html";
+        }
+        </script>
+
+        <script src="ProjectoIntegrador.js" defer></script>
+    </div>
+</body>
+</html>
