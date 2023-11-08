@@ -70,7 +70,6 @@ function updateTimer() {
   }
 }
 
-
 // Función para aleatorizar un arreglo utilizando el algoritmo de Fisher-Yates
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
@@ -107,6 +106,11 @@ function responderTrivia(botonSeleccionado) {
 
   // Si no se seleccionó ningún botón (temporizador agotado), considerar la respuesta como incorrecta
   var esCorrecta = botonSeleccionado ? botonSeleccionado.getAttribute('data-es-correcta') === 'true' : false;
+
+  // Si el tiempo se agotó, considerar la respuesta como incorrecta
+  if (timeLeft <= 0) {
+    esCorrecta = false;
+  }
 
   // Obtener la respuesta correcta guardada previamente
   var respuestaCorrecta = respuestaCorrectaActual[0]; // Solo necesitamos la primera respuesta correcta
@@ -183,4 +187,35 @@ function mostrarResultadoFinal() {
   document.getElementById('nombreResultado').innerText = nombre;
   document.getElementById('puntuacionResultado').innerText = puntuacion;
   document.getElementById('vidasResultado').innerText = vidas;
+
+  // Guardar la puntuación del jugador
+  guardarPuntuacion(nombre, puntuacion, vidas);
+
+  // Mostrar las puntuaciones más altas
+  mostrarPuntuaciones();
+  
+}
+  
+// Guardar una nueva puntuación en el almacenamiento local
+function guardarPuntuacion(nombre, puntuacion, vidas) {
+  const puntuaciones = obtenerPuntuacionesAlmacenadas();
+  puntuaciones.push({ nombre, puntuacion, vidas });
+  // Ordenar las puntuaciones de mayor a menor
+  puntuaciones.sort((a, b) => b.puntuacion - a.puntuacion);
+  // Guardar solo las 10 puntuaciones más altas
+  const puntuacionesTop10 = puntuaciones.slice(0, 10);
+  localStorage.setItem('puntuaciones', JSON.stringify(puntuacionesTop10));
+}
+
+// Mostrar las puntuaciones más altas en el marcador
+function mostrarPuntuaciones() {
+  const puntuacionesTop10 = obtenerPuntuacionesAlmacenadas();
+  // Mostrar las puntuaciones en tu marcador HTML (debes agregar un marcador en tu HTML)
+  const marcadorElement = document.getElementById('marcador');
+  marcadorElement.innerHTML = ''; // Limpiar el contenido anterior
+  puntuacionesTop10.forEach((puntuacion, index) => {
+    const item = document.createElement('li');
+    item.innerText = `${index + 1}. ${puntuacion.nombre}: ${puntuacion.puntuacion}`;
+    marcadorElement.appendChild(item);
+  })
 }
