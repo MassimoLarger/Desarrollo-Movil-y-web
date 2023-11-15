@@ -8,9 +8,9 @@ let timerInterval;
 let timerElement = document.getElementById('timer');
 var juegoFinalizado = false;
 
-
 function cargarPreguntas() {
   let categoria= localStorage.getItem('categoria');
+
   // Construir la URL basada en la categoría seleccionada
   let url = `${categoria}.json`;
 
@@ -39,17 +39,17 @@ function cargarPregunta(indicePregunta) {
     // Asigna clases específicas a los botones (por ejemplo, button1, button2, etc.)
     var buttonClass = 'button' + (index + 1);
     opcionesHTML += `
-      <li>
-        <button class="${buttonClass}" onclick="responderTrivia(this)" data-es-correcta="${respuestaCorrectaActual.includes(opcion)}">
-        ${opcion}</button>
-      </li>`;
+    <li>
+      <button class="${buttonClass}" onclick="responderTrivia(this)" data-es-correcta="${respuestaCorrectaActual.includes(opcion)}">
+      ${opcion}</button>
+    </li>`;
   });
   document.getElementById('options').innerHTML = opcionesHTML;
   
   // Aquí inicia el código del temporizador
   if (timerInterval) {
       clearInterval(timerInterval);
-      timeLeft = 15;  // Reiniciar el tiempo a 10 segundos
+      timeLeft = 15;  // Reiniciar el tiempo a 15 segundos
   }
     timerElement.textContent = timeLeft;
     timerInterval = setInterval(updateTimer, 1000);
@@ -93,48 +93,54 @@ function iniciarJuego() {
 }
 
 function responderTrivia(botonSeleccionado) {
-  // Si se ha seleccionado un botón, remover la clase 'seleccionado' de todos los botones
-  if (botonSeleccionado) {
-    var botones = document.querySelectorAll('#options button');
-    botones.forEach(function (boton) {
-      boton.classList.remove('seleccionado');
-    });
+  // Obtener todos los botones
+  var botones = document.querySelectorAll('#options button');
 
-    // Agregar la clase 'seleccionado' al botón seleccionado
-    botonSeleccionado.classList.add('seleccionado');
-  }
-
-  // Si no se seleccionó ningún botón (temporizador agotado), considerar la respuesta como incorrecta
-  var esCorrecta = botonSeleccionado ? botonSeleccionado.getAttribute('data-es-correcta') === 'true' : false;
-
-  // Si el tiempo se agotó, considerar la respuesta como incorrecta
-  if (timeLeft <= 0) {
-    esCorrecta = false;
-  }
+  // Deshabilitar todos los botones después de la respuesta
+  botones.forEach(function (boton) {
+    boton.disabled = true;
+  });
 
   // Obtener la respuesta correcta guardada previamente
-  var respuestaCorrecta = respuestaCorrectaActual[0]; // Solo necesitamos la primera respuesta correcta
+  var respuestaCorrecta = respuestaCorrectaActual[0];
 
-  var opcionSeleccionada = botonSeleccionado ? botonSeleccionado.innerText : "Tiempo agotado";
+  // Verificar si la respuesta es correcta o incorrecta y asignar colores
+  if (botonSeleccionado) {
+    var esRespuestaCorrecta = respuestaCorrecta.includes(botonSeleccionado.innerText);
 
-  var respuestaContainer = document.getElementById('respuesta');
-  var respuestaTexto = document.createElement('p');
-  respuestaTexto.className = 'respuesta-texto';
-  respuestaTexto.innerText = esCorrecta ? '¡Respuesta correcta!' : 'Respuesta incorrecta. La respuesta correcta es: ' + respuestaCorrecta;
+    botones.forEach(function (boton) {
+      var esRespuestaIncorrecta = respuestaCorrecta.includes(boton.innerText);
 
-  respuestaContainer.appendChild(respuestaTexto);
+      if (esRespuestaCorrecta) {
+        botonSeleccionado.style.backgroundColor = '#009929'; // Color verde para respuesta correcta
+      } else if (esRespuestaIncorrecta) {
+        botonSeleccionado.style.backgroundColor = '#FF0000'; // Color rojo para respuesta incorrecta
 
-  // Agregar la clase oculto después de un tiempo específico (por ejemplo, 3 segundos)
-  setTimeout(function () {
-    respuestaTexto.classList.add('oculto');
-    // Eliminar el elemento de la respuesta después de ocultarlo
-    setTimeout(function () {
-      respuestaContainer.removeChild(respuestaTexto);
-    }, 500);
-  }, 1000);
+        // Después de 1 segundo, cambiar el color del botón con la respuesta correcta a verde
+        setTimeout(function () {
+          botones.forEach(function (boton) {
+            var esRespuestaCorrecta = respuestaCorrecta.includes(boton.innerText);
+            if (esRespuestaCorrecta) {
+              boton.style.backgroundColor = '#009929'; // Color verde para respuesta correcta
+            }
+          });
+        }, 1000);
+      }
+    });
+  }
+
+  // Si el tiempo se agotó, cambiar el color de la respuesta correcta a amarillo
+  if (timeLeft <= 0) {
+    botones.forEach(function (boton) {
+      var esRespuestaCorrecta = respuestaCorrecta.includes(boton.innerText);
+      if (esRespuestaCorrecta) {
+        boton.style.backgroundColor = '#ffb600'; // Color amarillo para respuesta correcta cuando se agota el tiempo
+      }
+    });
+  }
 
   // Actualizar la puntuación y vidas
-  if (esCorrecta) {
+  if (botonSeleccionado && botonSeleccionado.getAttribute('data-es-correcta') === 'true') {
     puntuacion += 100;
   } else {
     vidas--;
@@ -144,16 +150,25 @@ function responderTrivia(botonSeleccionado) {
 
   // Cargar la siguiente pregunta después de un breve retraso
   setTimeout(function () {
+    // Restablecer los colores y habilitar los botones para la siguiente pregunta
+    botones.forEach(function (boton) {
+      boton.style.backgroundColor = '';
+      boton.disabled = false;
+    });
+
     // Verificar si quedan más preguntas
     if (indicePreguntaActual < preguntas.length - 1) {
       // Cargar la siguiente pregunta
       indicePreguntaActual++;
       cargarPregunta(indicePreguntaActual);
     } else {
-      // Fin del juego
-      mostrarResultadoFinal();
+      // Pausa de 2 segundo antes de mostrar el resultado final
+      setTimeout(function () {
+        // Fin del juego
+        mostrarResultadoFinal();
+      }, 3000);
     }
-  }, 1000);  // Esperar 1 segundo (1000 milisegundos) antes de cargar la siguiente pregunta
+  }, 3000);  // Esperar 2 segundo (2000 milisegundos) antes de cargar la siguiente pregunta
 
   // Detener el temporizador cuando el jugador responda
   clearInterval(timerInterval);
@@ -166,16 +181,16 @@ function actualizarInfoJuego() {
 
   // Verificar si el jugador ha perdido todas las vidas
   if (vidas <= 0) {
-    mostrarResultadoFinal();
+    setTimeout(function () {
+      // Fin del juego
+      mostrarResultadoFinal();
+    }, 2000);
   }
 }
 
 function mostrarResultadoFinal() {
   juegoFinalizado = true;  // Establecer que el juego ha finalizado
   clearInterval(timerInterval); // Añade esta línea para detener el temporizador
-
-  // Ocultar contenedor de información de juego
-  document.getElementById('info-container').style.display = 'none';
 
   // Ocultar contenedor de juego
   document.getElementById('trivia-container').style.display = 'none';
@@ -188,34 +203,45 @@ function mostrarResultadoFinal() {
   document.getElementById('puntuacionResultado').innerText = puntuacion;
   document.getElementById('vidasResultado').innerText = vidas;
 
-  // Guardar la puntuación del jugador
-  guardarPuntuacion(nombre, puntuacion, vidas);
+ // Obtener el cuerpo de la tabla
+  const tbody = document.querySelector('.bienvenida-MBp .table tbody');
 
-  // Mostrar las puntuaciones más altas
-  mostrarPuntuaciones();
-  
-}
-  
-// Guardar una nueva puntuación en el almacenamiento local
-function guardarPuntuacion(nombre, puntuacion, vidas) {
-  const puntuaciones = obtenerPuntuacionesAlmacenadas();
-  puntuaciones.push({ nombre, puntuacion, vidas });
-  // Ordenar las puntuaciones de mayor a menor
-  puntuaciones.sort((a, b) => b.puntuacion - a.puntuacion);
-  // Guardar solo las 10 puntuaciones más altas
-  const puntuacionesTop10 = puntuaciones.slice(0, 10);
-  localStorage.setItem('puntuaciones', JSON.stringify(puntuacionesTop10));
-}
+  // Crear una nueva fila para el jugador actual
+  const newRow = tbody.insertRow();
+  const cellNombre = newRow.insertCell(0);
+  const cellPuntuacion = newRow.insertCell(1);
+  const cellVidas = newRow.insertCell(2);
 
-// Mostrar las puntuaciones más altas en el marcador
-function mostrarPuntuaciones() {
-  const puntuacionesTop10 = obtenerPuntuacionesAlmacenadas();
-  // Mostrar las puntuaciones en tu marcador HTML (debes agregar un marcador en tu HTML)
-  const marcadorElement = document.getElementById('marcador');
-  marcadorElement.innerHTML = ''; // Limpiar el contenido anterior
-  puntuacionesTop10.forEach((puntuacion, index) => {
-    const item = document.createElement('li');
-    item.innerText = `${index + 1}. ${puntuacion.nombre}: ${puntuacion.puntuacion}`;
-    marcadorElement.appendChild(item);
-  })
+  // Asignar los valores del jugador a las celdas
+  cellNombre.innerHTML = nombre;
+  cellPuntuacion.innerHTML = puntuacion;
+  cellVidas.innerHTML = vidas;
+
+  // Obtener todas las filas existentes en la tabla
+  const rows = Array.from(tbody.querySelectorAll('tr'));
+
+  // Añadir la nueva fila a las filas existentes
+  rows.push(newRow);
+
+  // Ordenar las filas por puntuación y vidas en orden descendente
+  rows.sort((a, b) => {
+      const puntuacionA = parseInt(a.cells[1].innerHTML);
+      const puntuacionB = parseInt(b.cells[1].innerHTML);
+      const vidasA = parseInt(a.cells[2].innerHTML);
+      const vidasB = parseInt(b.cells[2].innerHTML);
+
+      // Ordenar por puntuación en orden descendente
+      if (puntuacionA !== puntuacionB) {
+          return puntuacionB - puntuacionA;
+      }
+
+      // Si las puntuaciones son iguales, ordenar por vidas en orden descendente
+      return vidasB - vidasA;
+  });
+
+  // Limpiar el contenido actual de la tabla
+  tbody.innerHTML = '';
+
+  // Recorrer las filas ordenadas y añadir las primeras 10 a la tabla
+  rows.slice(0, 10).forEach(row => tbody.appendChild(row));
 }

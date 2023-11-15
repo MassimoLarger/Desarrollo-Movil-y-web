@@ -1,0 +1,529 @@
+html {
+  font-size: 62.5%;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+ul, li {
+  list-style: none;
+}
+input {
+  border: none;
+}
+body {
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-size: 1.6rem;
+}
+.fondo_movil{
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url('../assets_movil/fondo2.png');
+  background-color: #ffffff;
+}
+.fondo_movil .auto-group {
+  box-sizing: border-box;
+  padding: 5.8rem 8.95rem 20.2rem 9.05rem;
+  width: 100%;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url('../assets_movil/vector-2.png');
+  flex-shrink: 0;
+}
+.fondo_movil .auto-group .preguntopa-L5G {
+  margin: 0rem 0.5rem 2.6rem 0rem;
+  font-size: 3.2rem;
+  font-weight: 900;
+  line-height: 1.3625;
+  color: #ffffff;
+  font-family: Nunito Sans, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.fondo_movil .auto-group .Title {
+  max-width: 24.8rem;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.3625;
+  color: #ffffff;
+  font-family: Nunito Sans, 'Source Sans Pro';
+  flex-shrink: 0;
+}
+.fondo_movil .auto-group-block {
+  box-sizing: border-box;
+  padding: 15rem 3.9rem 7.2rem 3.9rem;
+  width: 100%;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+.fondo_movil .auto-group-block .cerebroinicio{
+  margin-left: 0.013rem;
+  width: 20.613rem;
+  height: 20rem;
+  object-fit: cover;
+  vertical-align: top;
+  border-radius: 7.2rem;
+  flex-shrink: 0;
+}
+.fondo_movil .auto-group-block .buttonblue {
+  width: 100%;
+  height: 5rem;
+  text-align: center;
+  font-size: 2.6rem;
+  font-weight: 600;
+  line-height: 1.3625;
+  color: #ffffff;
+  font-family: Nunito Sans, 'Source Sans Pro';
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #293175;
+  border-radius: 1.2rem;
+  flex-shrink: 0;
+}
+.fondo_movil .textLogin {
+  position: absolute;
+  left: 10rem;
+  top: 53rem;
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.3625;
+  color: #293175;
+  font-family: Nunito Sans, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.fondo_movil .buttonsLogin {
+  box-sizing: border-box;
+  padding: 1rem 1rem 1rem 1rem;
+  width: 100%;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+.fondo_movil .buttonsLogin .buttonF {
+  margin: 0rem 0.3rem 2rem 0.3rem;
+  box-sizing: border-box;
+  padding: 0.5rem 5rem 0.5rem 4.5rem;
+  width: calc(100% - 0.6rem);
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  background-color: #2992fb;
+  border-radius: 1.2rem;
+  flex-shrink: 0;
+}
+.fondo_movil .buttonsLogin .buttonF .iconF {
+  margin: 0rem 0.883rem 0.1rem 0rem;
+  width: 3rem;
+  height: 3rem;
+  position: absolute;
+  left: 6.5rem;
+  top: 58rem;
+}
+.fondo_movil .buttonsLogin .buttonF .textF {
+  margin-top: 0.2rem;
+  position: absolute;
+  left: 12rem;
+  top: 58rem;
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.3625;
+  color: #ffffff;
+  font-family: Nunito Sans, 'Source Sans Pro';
+}
+.fondo_movil .buttonsLogin .buttonA {
+  margin: 0rem 0.4rem 2rem 0.2rem;
+  box-sizing: border-box;
+  padding: 0.5rem 5rem 0.5rem 4.5rem;
+  width: calc(100% - 0.6rem);
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 1.2rem;
+  flex-shrink: 0;
+}
+.fondo_movil .buttonsLogin .buttonA .iconA {
+  margin: 0rem 1.4rem 1rem 0rem;
+  width: 2.527rem;
+  height: 3rem;
+  position: absolute;
+  left: 6.5rem;
+  top: 65rem;
+}
+.fondo_movil .buttonsLogin .buttonA .textA {
+  margin-top: 0.2rem;
+  position: absolute;
+  left: 13.5rem;
+  top: 65rem;
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.3625;
+  color: #000000;
+  font-family: Nunito Sans, 'Source Sans Pro';
+}
+.fondo_movil .buttonsLogin .buttonG {
+  margin: 0rem 0.4rem 1.1rem 0.2rem;
+  box-sizing: border-box;
+  padding: 0.5rem 5rem 0.5rem 4.5rem;
+  width: calc(100% - 0.6rem);
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 1.2rem;
+  flex-shrink: 0;
+}
+.fondo_movil .buttonsLogin .buttonG .iconG {
+  margin-right: 0.66rem;
+  width: 2.94rem;
+  height: 3rem;
+  position: absolute;
+  left: 6.5rem;
+  top: 72rem;
+}
+.fondo_movil .buttonsLogin .buttonG .textG {
+  margin-top: 0.2rem;
+  position: absolute;
+  left: 13rem;
+  top: 72rem;
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.3625;
+  color: #000000;
+  font-family: Nunito Sans, 'Source Sans Pro';
+}
+.fondo_movil .buttonsLogin .invitado {
+  margin: 0rem 0.2rem 0.5rem 0rem;
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 200;
+  line-height: 1.3640000025;
+  text-transform: capitalize;
+  text-decoration-line: underline;
+  color: #293175;
+  font-family: Nunito Sans, 'Source Sans Pro';
+  white-space: nowrap;
+  display: flex;
+  align-items: baseline;
+  flex-shrink: 0;
+}
+.fondo_movil .buttonsLogin .invitado .play {
+  font-size: 1.8rem;
+  font-weight: 600;
+  line-height: 1.3625;
+  text-transform: capitalize;
+  text-decoration-line: underline;
+  color: #293175;
+  font-family: Nunito Sans, 'Source Sans Pro';
+}
+.fondo_movil .buttonsLogin .privacidad {
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.3625;
+  color: #293175;
+  font-family: Nunito Sans, 'Source Sans Pro';
+  white-space: nowrap;
+  display: flex;
+  align-items: baseline;
+  flex-shrink: 0;
+}
+.fondo_movil .buttonsLogin .privacidad .sub-0 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #293175;
+  font-family: Nunito Sans, 'Source Sans Pro';
+}
+.fondo_movil .buttonsLogin .privacidad .sub-1 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.3625;
+  text-decoration-line: underline;
+  color: #293175;
+  font-family: Nunito Sans, 'Source Sans Pro';
+}
+.bienvenida-Movil {
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url('../assets_movil/fondo.png');
+  background-color: #ffffff;
+}
+.bienvenida-Movil .rectangle-white {
+  width: 41.5rem;
+  height: 5.5rem;
+  position: absolute;
+  left: 0;
+  top: 84rem;
+  background-color: #ffffff;
+}
+.bienvenida-Movil .rectangle-yellow {
+  width: 41.5rem;
+  height: 8rem;
+  position: absolute;
+  background-color: #ffe000;
+}
+.bienvenida-Movil .image-House {
+  width: 4rem;
+  height: 4rem;
+  position: absolute;
+  left: 19rem;
+  top: 84.7rem;
+}
+.bienvenida-Movil .logo {
+  width: 4.9573rem;
+  height: 5rem;
+  position: absolute;
+  left: 18.9rem;
+  top: 5.5rem;
+  object-fit: cover;
+  vertical-align: top;
+}
+.bienvenida-Movil .oval-uDL {
+  width: 4rem;
+  height: 4rem;
+  position: absolute;
+  left: 3rem;
+  top: 2.3rem;
+  border: solid 0.1rem #293175;
+  box-sizing: border-box;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url('../assets_movil/oval-stroke.png');
+  border-radius: 2rem;
+}
+.bienvenida-Movil .image-calender {
+  width: 3.5rem;
+  height: 3.5rem;
+  position: absolute;
+  left: 6rem;
+  top: 85rem;
+}
+.bienvenida-Movil .buttonred {
+  width: 39rem;
+  height: 5.8rem;
+  position: absolute;
+  left: 1.3rem;
+  top: 74.5rem;
+  background-color: #f06f9a;
+  border-radius: 1.2rem;
+}
+.bienvenida-Movil .crear-partida {
+  width: 17.5rem;
+  height: 3.4rem;
+  position: absolute;
+  left: 12.65rem;
+  top: 75.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.8rem;
+  font-weight: 400;
+  line-height: 1.2125;
+  color: #ffffff;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.bienvenida-Movil .image-brain {
+  width: 3.5rem;
+  height: 3.5rem;
+  position: absolute;
+  left: 32rem;
+  top: 85rem;
+}
+.bienvenida-Movil .image-3line {
+  width: 3rem;
+  height: 2.3rem;
+  position: absolute;
+  left: 37.9rem;
+  top: 3rem;
+  object-fit: cover;
+  vertical-align: top;
+}
+.bienvenida-Movil .rectangle-grey {
+  width: 39rem;
+  height: 6.9rem;
+  position: absolute;
+  left: 1.9rem;
+  top: 12rem;
+  background-color: rgba(204, 214, 221, 0.8000000119);
+  border-radius: 1.2rem;
+}
+.bienvenida-Movil .text1 {
+  width: 25.3rem;
+  height: 5.5rem;
+  position: absolute;
+  left: 14.2rem;
+  top: 12.7rem;
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.3625;
+  color: #000000;
+  font-family: Nunito Sans, 'Source Sans Pro';
+}
+.bienvenida-Movil .cerebroGreat {
+  width: 7.2333rem;
+  height: 7rem;
+  position: relative;
+  left: 4.5rem;
+  top: 12rem;
+  background-size: 127.143% 233.333%;
+  background-position: -0.9333rem -4.6667rem;
+  background-image: url('../assets_movil/cerebroGreat.png');
+}
+.bienvenida-Movil .Scores {
+  position: absolute;
+  left: 3.2rem;
+  top: 22rem;
+  font-size: 1.8rem;
+  font-weight: 900;
+  line-height: 3;
+  color: #000000;
+  font-family: Nunito Sans, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.bienvenida-Movil .table-container {
+  overflow-x: auto;
+  max-width: 90%; /* Establecer el ancho máximo del contenedor según sea necesario */
+  margin-left: 2rem;
+  margin-top: 20rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: rgba(204, 214, 221, 0.373);
+}
+.bienvenida-Movil .table {
+  border-collapse: collapse;
+  width: 100%;
+}
+.bienvenida-Movil .th, .bienvenida-Movil .td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+.bienvenida-Movil .th {
+  background-color: #4caf50;
+  color: white;
+}
+.bienvenida-Movil .rectangle-opaco {
+  width: 42.8rem;
+  height: 92.6rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.bienvenida-Movil .rectangle-opaco .cerebroHi {
+  width: 24.6rem;
+  height: 31.6rem;
+  position: absolute;
+  left: 9.2rem;
+  top: 39.6rem;
+  object-fit: cover;
+  vertical-align: top;
+}
+.bienvenida-Movil .rectangle-opaco .bubble {
+  width: 23.5rem;
+  height: 15.5rem;
+  position: absolute;
+  left: 13.75rem;
+  top: 33.25rem;
+  object-fit: contain;
+  vertical-align: top;
+  border-radius: 3.5rem;
+}
+.bienvenida-Movil .rectangle-opaco .textBubble {
+  width: 17.8rem;
+  height: 6.6rem;
+  position: absolute;
+  left: 16.6rem;
+  top: 35.4rem;
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 1.3625;
+  color: #000000;
+  font-family: Nunito Sans, 'Source Sans Pro';
+}
+.bienvenida-Movil .rectangle-opaco .textScreen {
+  width: 17.9rem;
+  height: 5rem;
+  position: absolute;
+  left: 12.5rem;
+  top: 69.4rem;
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 900;
+  line-height: 1.3625;
+  color: #ffffff;
+  font-family: Nunito Sans, 'Source Sans Pro';
+}
+.bienvenida-Movil .textnombre {
+    position: absolute;
+    left: 7.5rem;
+    top: 52rem;
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 900;
+    line-height: 1.3625;
+    color: #ffffff;
+    font-family: Nunito Sans, 'Source Sans Pro';
+}
+.bienvenida-Movil .label {
+    width: 35rem;
+    height: 5rem;
+    position: absolute;
+    left: 3.5rem;
+    top: 58rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 1.3625;
+    color: #ffffff;
+    font-family: Nunito Sans, 'Source Sans Pro';
+    white-space: nowrap;
+    background-color: #4f9ced;
+    border-radius: 1rem;
+    text-align: center; /* Alinea el texto horizontalmente */
+  }
+.bienvenida-Movil .image1 {
+
+}
+.bienvenida-Movil .image2 {
+
+}
+.bienvenida-Movil .image3 {
+
+}
+.bienvenida-Movil .image4 {
+
+}
+.bienvenida-Movil .image5 {
+
+}
+.bienvenida-Movil .image6 {
+
+}
+.bienvenida-Movil .image7 {
+
+}
