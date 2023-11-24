@@ -280,6 +280,8 @@ body {
   width: 41.5rem;
   height: 8rem;
   position: absolute;
+  left: 0;
+  top: 0rem;
   background-color: #ffe000;
 }
 .bienvenida-Movil .image-House {
@@ -344,6 +346,33 @@ body {
   font-family: Inter, 'Source Sans Pro';
   white-space: nowrap;
 }
+.bienvenida-Movil .image-3line {
+  width: 3rem;
+  height: 3rem;
+  position: absolute;
+  left: 37rem;
+  top: 2.8rem;
+  object-fit: cover;
+  vertical-align: top;
+}
+.bienvenida-Movil .image-config {
+  width: 3rem;
+  height: 3rem;
+  position: absolute;
+  left: 3.5rem;
+  top: 2.8rem;
+  object-fit: cover;
+  vertical-align: top;
+}
+.bienvenida-Movil .image-bell {
+  width: 3rem;
+  height: 3rem;
+  position: absolute;
+  left: 32rem;
+  top: 2.8rem;
+  object-fit: cover;
+  vertical-align: top;
+}
 .bienvenida-Movil .image-brain {
   width: 3.5rem;
   height: 3.5rem;
@@ -351,14 +380,23 @@ body {
   left: 32rem;
   top: 85rem;
 }
-.bienvenida-Movil .image-3line {
-  width: 3rem;
-  height: 2.3rem;
+.bienvenida-Movil .iniciar-juego {
+  width: 23rem;
+  height: 5rem;
   position: absolute;
-  left: 37.9rem;
-  top: 3rem;
-  object-fit: cover;
-  vertical-align: top;
+  left: 9rem;
+  top: 34.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1.3625;
+  color: #ffffff;
+  font-family: Nunito Sans, 'Source Sans Pro';
+  white-space: nowrap;
+  background-color: #ed709a;
+  border-radius: 2rem;
 }
 .bienvenida-Movil .rectangle-grey {
   width: 39rem;
@@ -373,8 +411,8 @@ body {
   width: 25.3rem;
   height: 5.5rem;
   position: absolute;
-  left: 14.2rem;
-  top: 12.7rem;
+  left: 12rem;
+  top: 0.8rem;
   font-size: 2rem;
   font-weight: 600;
   line-height: 1.3625;
@@ -382,19 +420,16 @@ body {
   font-family: Nunito Sans, 'Source Sans Pro';
 }
 .bienvenida-Movil .cerebroGreat {
-  width: 7.2333rem;
-  height: 7rem;
-  position: relative;
-  left: 4.5rem;
-  top: 12rem;
-  background-size: 127.143% 233.333%;
-  background-position: -0.9333rem -4.6667rem;
-  background-image: url('../assets_movil/cerebroGreat.png');
+  width: 10rem;
+  height: 16rem;
+  position: absolute;
+  left: 1rem;
+  top: -4.5rem;
 }
 .bienvenida-Movil .Scores {
   position: absolute;
   left: 3.2rem;
-  top: 22rem;
+  top: 19rem;
   font-size: 1.8rem;
   font-weight: 900;
   line-height: 3;
@@ -402,26 +437,37 @@ body {
   font-family: Nunito Sans, 'Source Sans Pro';
   white-space: nowrap;
 }
-.bienvenida-Movil .table-container {
-  overflow-x: auto;
-  max-width: 90%; /* Establecer el ancho máximo del contenedor según sea necesario */
-  margin-left: 2rem;
-  margin-top: 20rem;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  background-color: rgba(204, 214, 221, 0.373);
+.bienvenida-Movil .table-container-movil {
+  width: 90%;
+  height: 35%;
+  position: absolute;
+  left: 2rem;
+  top: 42rem;
+  color: #ffffff;
+  border: solid 0.1rem rgba(255, 255, 255, 0.8999999762);
+  background-color: rgba(96, 73, 160, 0.8999999762);
+  border-radius: 3rem;
+  text-align: center;
+  font-size: 12px;
 }
-.bienvenida-Movil .table {
-  border-collapse: collapse;
+.bienvenida-Movil .table-container-movil .table {
   width: 100%;
+  color: #ffffff;
+  text-align: center;
+  font-size: 14px; /* Ajusta el tamaño de la fuente */
 }
-.bienvenida-Movil .th, .bienvenida-Movil .td {
-  padding: 15px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
+.bienvenida-Movil .table-container-movil .table .th, .bienvenida-MBp .table-container-movil .table .td {
+  color: #ffffff;
+  text-align: center;
+  border: 1px solid #ffffff; /* Establece el color de las líneas internas de la tabla */
 }
-.bienvenida-Movil .th {
-  background-color: #4caf50;
-  color: white;
+.bienvenida-Movil .table-container-movil .table tbody tr:nth-child(odd) {
+  background-color: #646cb0; /* Color para filas impares del tbody */
+  border: 1px solid #ffffff;
+}
+.bienvenida-Movil .table-container-movil .table tbody tr:nth-child(even) {
+  background-color: #858dd1; /* Color para filas pares del tbody */
+  border: 1px solid #ffffff;
 }
 .bienvenida-Movil .rectangle-opaco {
   width: 42.8rem;
@@ -477,53 +523,483 @@ body {
   font-family: Nunito Sans, 'Source Sans Pro';
 }
 .bienvenida-Movil .textnombre {
-    position: absolute;
-    left: 7.5rem;
-    top: 52rem;
-    text-align: center;
-    font-size: 3rem;
-    font-weight: 900;
-    line-height: 1.3625;
-    color: #ffffff;
-    font-family: Nunito Sans, 'Source Sans Pro';
+  position: absolute;
+  left: 7rem;
+  top: 23rem;
+  font-size: 3.2rem;
+  font-weight: 600;
+  line-height: 1.3625;
+  color: #ffffff;
+  font-family: Nunito Sans, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 .bienvenida-Movil .label {
-    width: 35rem;
-    height: 5rem;
-    position: absolute;
-    left: 3.5rem;
-    top: 58rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2rem;
-    font-weight: 600;
-    line-height: 1.3625;
-    color: #ffffff;
-    font-family: Nunito Sans, 'Source Sans Pro';
-    white-space: nowrap;
-    background-color: #4f9ced;
-    border-radius: 1rem;
-    text-align: center; /* Alinea el texto horizontalmente */
+  position: absolute;
+  text-align: center;
+  left: 4.5rem;
+  top: 28rem;
+  box-sizing: border-box;
+  padding: 0.8rem 1.3rem 1rem 1.3rem;
+  width: calc(100% - 8.2rem);
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.3625;
+  color: #9aa7b1;
+  font-family: Nunito Sans, 'Source Sans Pro';
+  white-space: nowrap;
+  background-color: #ffffff;
+  border-radius: 2rem;
+  flex-shrink: 0;
   }
-.bienvenida-Movil .image1 {
-
+.bienvenida-Movil .image-movil1 {
+  width: 18rem;
+  height: 26rem;
+  position: absolute;
+  left: 1.5rem;
+  top: 28rem;
 }
-.bienvenida-Movil .image2 {
-
+.bienvenida-Movil .image-movil2 {
+  width: 18rem;
+  height: 24rem;
+  position: absolute;
+  left: 22rem;
+  top: 29.5rem;
 }
-.bienvenida-Movil .image3 {
-
+.bienvenida-Movil .image-movil3 {
+  width: 18rem;
+  height: 26rem;
+  position: absolute;
+  left: 1.5rem;
+  top: 50rem;
 }
-.bienvenida-Movil .image4 {
-
+.bienvenida-Movil .image-movil4 {
+  width: 18rem;
+  height: 26rem;
+  position: absolute;
+  left: 21rem;
+  top: 49rem;
 }
-.bienvenida-Movil .image5 {
-
+.bienvenida-Movil .image-movil5 {
+  width: 16rem;
+  height: 24rem;
+  position: absolute;
+  left: 3rem;
+  top: 67rem;
 }
-.bienvenida-Movil .image6 {
-
+.bienvenida-Movil .image-movil6 {
+  width: 20rem;
+  height: 27rem;
+  position: absolute;
+  left: 21rem;
+  top: 67rem;
 }
-.bienvenida-Movil .image7 {
-
+.bienvenida-Movil .image-movil7 {
+  width: 22rem;
+  height: 34rem;
+  position: absolute;
+  left: 10rem;
+  top: 4rem;
+}
+.bienvenida-Movil .text-movil1 {
+  position: absolute;
+  left: 10rem;
+  top: 3rem;
+  font-size: 3.2rem;
+  font-weight: 800;
+  line-height: 1.3625;
+  color: #ffffff;
+  font-family: Nunito Sans, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.bienvenida-Movil .text-movil2 {
+  position: absolute;
+  left: 9rem;
+  top: 8rem;
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.3625;
+  color: #ffffff;
+  font-family: Nunito Sans, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.bienvenida-Movil .cerebroHi2 {
+  width: 30rem;
+  height: 30rem;
+  position: absolute;
+  left: 6rem;
+  top: 40rem;
+  object-fit: cover;
+  vertical-align: top;
+}
+.bienvenida-Movil .bubble2 {
+  width: 35rem;
+  height: 35rem;
+  position: absolute;
+  left: 3.5rem;
+  top: 15.25rem;
+  object-fit: contain;
+  vertical-align: top;
+  border-radius: 3.5rem;
+}
+.bienvenida-Movil .textBubble2 {
+  width: 32rem;
+  height: 6rem;
+  position: absolute;
+  left: 5rem;
+  top: 23rem;
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 1.3625;
+  color: #000000;
+  font-family: Nunito Sans, 'Source Sans Pro';
+}
+.bienvenida-Movil .logo-Sok {
+  width: 10rem;
+  height: 10rem;
+  position: absolute;
+  left: 16rem;
+  top: 4rem;
+  object-fit: cover;
+  vertical-align: top;
+  flex-shrink: 0;
+}
+.bienvenida-Movil .iconoHI {
+  width: 15rem;
+  height: 15rem;
+  position: absolute;
+  left: 14rem;
+  top: 72rem;
+  object-fit: cover;
+  vertical-align: top;
+  flex-shrink: 0;
+}
+.bienvenida-Movil .preguntopa-NBc {
+  position: absolute;
+  left: 12.5rem;
+  top: 16rem;
+  font-size: 2.4rem;
+  font-weight: 600;
+  line-height: 1.3625;
+  color: #ffe000;
+  font-family: Nunito Sans, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.bienvenida-Movil .block {
+  margin-bottom: 10rem;
+  box-sizing: border-box;
+  padding: 0.95rem 2.55rem 0.95rem 3.4rem;
+  width: 100%;
+  height: 12rem;
+  display: flex;
+  align-items: flex-start;
+  background-color: #ffffff;
+  flex-shrink: 0;
+}
+.bienvenida-Movil .block .points{
+  width: 8.9rem;
+  height: 1.7rem;
+  position: absolute;
+  left: 2rem;
+  top: 13.5rem;
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 1.3625;
+  color: #ffffff;
+  font-family: Nunito Sans, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.bienvenida-Movil .block .life{
+  width: 4.4rem;
+  height: 1.7rem;
+  position: absolute;
+  left: 32rem;
+  top: 13.5rem;
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 1.3625;
+  color: #ffffff;
+  font-family: Nunito Sans, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.bienvenida-Movil .block .reloj-movil{
+  align-items: center;
+  background-color:#ffb600;
+  border-radius: 1.8rem;
+  color:#1e1e1e;
+  display: flex;
+  font-family: Nunito Sans, 'Source Sans Pro';
+  font-size: 1.4rem;
+  font-weight: 800;
+  width: 9.4rem;
+  height: 3.7rem;
+  justify-content: center;
+  line-height: 1.3625;
+  position: absolute;
+  left: 31rem;
+  top: 4rem;
+  white-space: nowrap;
+}
+/* Estilo para el primer botón */
+.button-movil1 {
+  width: 38rem;
+  height: 6rem;
+  position: absolute;
+  left: 2rem;
+  top: 18em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1.3625;
+  color: #ffffff;
+  font-family: Nunito Sans, 'Source Sans Pro';
+  white-space: nowrap;
+  background-color: #ed709a;
+  border-radius: 2rem;
+}
+/* Estilo para el segundo botón */
+.button-movil2 {
+  width: 38rem;
+  height: 6rem;
+  position: absolute;
+  left: 2rem;
+  top: 22em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1.3625;
+  color: #ffffff;
+  font-family: Nunito Sans, 'Source Sans Pro';
+  white-space: nowrap;
+  background-color: #ed709a;
+  border-radius: 2rem;
+}
+/* Estilo para el tercer botón */
+.button-movil3 {
+  width: 38rem;
+  height: 6rem;
+  position: absolute;
+  left: 2rem;
+  top: 26em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1.3625;
+  color: #ffffff;
+  font-family: Nunito Sans, 'Source Sans Pro';
+  white-space: nowrap;
+  background-color: #ed709a;
+  border-radius: 2rem;
+}
+/* Estilo para el cuarto botón */
+.button-movil4 {
+  width: 38rem;
+  height: 6rem;
+  position: absolute;
+  left: 2rem;
+  top: 30em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1.3625;
+  color: #ffffff;
+  font-family: Nunito Sans, 'Source Sans Pro';
+  white-space: nowrap;
+  background-color: #ed709a;
+  border-radius: 2rem;
+}
+.bienvenida-Movil .block .image-category-movil{
+  width: 7rem;
+  height: 12rem;
+  position: absolute;
+  left: 3rem;
+  top: 0rem;
+}
+.bienvenida-Movil .question{
+  position: absolute;
+  left: 1.5rem;
+  top: 17rem;
+  max-width: 38rem;
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 600;
+  line-height: 1.3625;
+  color: #ffffff;
+  font-family: Nunito Sans, 'Source Sans Pro';
+  flex-shrink: 0;
+}
+.bienvenida-Movil .final{
+  position: absolute;
+  left: 7rem;
+  top: 12rem;
+  text-align: center;
+  font-size: 3.2rem;
+  font-weight: 800;
+  line-height: 1.3625;
+  color: #000000;
+  font-family: Nunito Sans, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.bienvenida-Movil .image-win {
+  width: 20rem;
+  height: 25rem;
+  position: absolute;
+  left: 1rem;
+  top: 60rem;
+}
+.bienvenida-Movil .puntaje-movil {
+  width: 27.5rem;
+  height: 27rem;
+  position: absolute;
+  left: 7rem;
+  top: 17rem;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url('../assets_movil/ellipse-7.png');
+}
+.bienvenida-Movil .puntaje-movil .puntos-ganados-movil {
+  width: 13.2rem;
+  height: 10.3rem;
+  position: absolute;
+  left: 7rem;
+  top: 11rem;
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 600;
+  line-height: 1.3625;
+  color: #ffffff;
+  font-family: Nunito Sans, 'Source Sans Pro';
+}
+.bienvenida-Movil .puntaje-movil .puntos {
+  width: 9rem;
+  height: 6.9rem;
+  position: absolute;
+  left: 9rem;
+  top: 4rem;
+  text-align: center;
+  font-size: 5rem;
+  font-weight: 600;
+  line-height: 1.3625;
+  color: #ffffff;
+  font-family: Nunito Sans, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.bienvenida-Movil .ganador-movil {
+  width: 47.5rem;
+  height: 9.1rem;
+  position: relative;
+  border-radius: 2.5rem;
+}
+.bienvenida-Movil .ganador-movil .rectangle-movil {
+  width: 35rem;
+  height: 16rem;
+  position: absolute;
+  left: 3.5rem;
+  top: 46rem;
+  border: solid 0.4rem #c9cbd0;
+  box-sizing: border-box;
+  background-color: #6f7a9a;
+  border-radius: 2.5rem;
+}
+.bienvenida-Movil .ganador-movil .nombre-movil-text {
+  width: 11.4rem;
+  height: 4.1rem;
+  position: absolute;
+  left: 16rem;
+  top: 47rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1.3625;
+  color: #ffffff;
+  font-family: Nunito Sans, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.bienvenida-Movil .ganador-movil .ganador-movil-text {
+  width: 15.9rem;
+  height: 4.1rem;
+  position: absolute;
+  left: 13.5rem;
+  top: 51rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1.3625;
+  color: #ffc707;
+  font-family: Nunito Sans, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.bienvenida-Movil .ganador-movil .vidas {
+  width: 15.9rem;
+  height: 4.1rem;
+  position: absolute;
+  left: 13.5rem;
+  top: 55rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1.3625;
+  color: #ffc707;
+  font-family: Nunito Sans, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.bienvenida-Movil .button-movil {
+  width: 20rem;
+  height: 5rem;
+  position: absolute;
+  left: 21rem;
+  top: 67rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.1rem;
+  font-weight: 600;
+  line-height: 1.3625;
+  color: #ffffff;
+  font-family: Nunito Sans, 'Source Sans Pro';
+  white-space: nowrap;
+  background-color: #ed709a;
+  border-radius: 5rem;
+  cursor: pointer;
+}
+.bienvenida-Movil .buttonback-movil {
+  width: 20rem;
+  height: 5rem;
+  position: absolute;
+  left: 21rem;
+  top: 75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.1rem;
+  font-weight: 600;
+  line-height: 1.3625;
+  color: #ffffff;
+  font-family: Nunito Sans, 'Source Sans Pro';
+  white-space: nowrap;
+  background-color: #ed709a;
+  border-radius: 5rem;
+  cursor: pointer;
 }

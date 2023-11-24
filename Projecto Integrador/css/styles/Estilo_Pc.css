@@ -251,64 +251,64 @@ body {
 }
 .bienvenida-MBp .image1 {
   width: 22rem;
-  height: 20rem;
+  height: 26rem;
   position: absolute;
-  left: 20rem;
-  top: 15rem;
+  left: 40rem;
+  top: 20rem;
   object-fit: cover;
   vertical-align: top;
 }
 .bienvenida-MBp .image2 {
   width: 20rem;
-  height: 20rem;
+  height: 24rem;
   position: absolute;
-  left: 104.5rem;
-  top: 15rem;
+  left: 41rem;
+  top: 48rem;
   object-fit: cover;
   vertical-align: top;
 }
 .bienvenida-MBp .image3 {
-  width: 20rem;
-  height: 20rem;
+  width: 22rem;
+  height: 26rem;
   position: absolute;
-  left: 20rem;
-  top: 35rem;
+  left: 68rem;
+  top: 19.5rem;
   object-fit: cover;
   vertical-align: top;
 }
 .bienvenida-MBp .image4 {
-  width: 20rem;
-  height: 20rem;
+  width: 22rem;
+  height: 24rem;
   position: absolute;
-  left: 104.5rem;
-  top: 35rem;
+  left: 68rem;
+  top: 47.5rem;
   object-fit: cover;
   vertical-align: top;
 }
 .bienvenida-MBp .image5 {
-  width: 20rem;
-  height: 20rem;
+  width: 22rem;
+  height: 26rem;
   position: absolute;
-  left: 20rem;
-  top: 55rem;
+  left: 98rem;
+  top: 19.5rem;
   object-fit: cover;
   vertical-align: top;
 }
 .bienvenida-MBp .image6 {
-  width: 20rem;
-  height: 20rem;
+  width: 22rem;
+  height: 26rem;
   position: absolute;
-  left: 104.5rem;
-  top: 55rem;
+  left: 98rem;
+  top: 46rem;
   object-fit: cover;
   vertical-align: top;
 }
 .bienvenida-MBp .image7 {
-  width: 30rem;
-  height: 30rem;
+  width: 36rem;
+  height: 44rem;
   position: absolute;
-  left: 57.25rem;
-  top: 30rem;
+  left: 2rem;
+  top: 22rem;
   object-fit: cover;
   vertical-align: top;
 }
@@ -334,9 +334,9 @@ body {
 .bienvenida-MBp .image-category {
   width: 50rem;
   height: 50rem;
-  position: relative;
-  left: 92rem;
-  top: 17rem;
+  position: absolute;
+  left: 94rem;
+  top: 18rem;
 }
 .button {
   width: 19.7rem;
@@ -466,12 +466,12 @@ body {
   width: 35.9rem;
   height: 5.5rem;
   position: absolute;
-  left: 58.1rem;
-  top: 10.3rem;
+  left: 61rem;
+  top: 10rem;
   font-size: 4rem;
   font-weight: 600;
   line-height: 1.3625;
-  color: #f06f9a;
+  color: #ffffff;
   font-family: Nunito Sans, 'Source Sans Pro';
   white-space: nowrap;
 }
@@ -479,12 +479,12 @@ body {
   width: 35.9rem;
   height: 5.5rem;
   position: absolute;
-  left: 53.1rem;
-  top: 15.3rem;
+  left: 56rem;
+  top: 15rem;
   font-size: 3rem;
   font-weight: 600;
   line-height: 1.3625;
-  color: #f06f9a;
+  color: #ffffff;
   font-family: Nunito Sans, 'Source Sans Pro';
   white-space: nowrap;
 }
@@ -541,24 +541,36 @@ body {
   border: 1px solid #FFD700;
 }
 .bienvenida-MBp .table-container {
-  width: 50%;
-  height: 20%;
+  width: 55%;
+  height: 40%;
   position: absolute;
   left: 10rem;
   top: 37rem;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  background-color: rgba(204, 214, 221, 0.373);
+  color: #ffffff;
+  border: solid 0.1rem rgba(255, 255, 255, 0.8999999762);
+  background-color: rgba(96, 73, 160, 0.8999999762);
+  border-radius: 3rem;
+  text-align: center;
+  font-size: 12px;
 }
-.bienvenida-MBp .table {
+.bienvenida-MBp .table-container .table {
   width: 100%;
+  color: #ffffff;
+  text-align: center;
+  font-size: 14px; /* Ajusta el tamaño de la fuente */
 }
-.bienvenida-MBp .th, .bienvenida-MBp .td {
-  text-align: left;
-  border-bottom: 1px solid #ddd;
+.bienvenida-MBp .table-container .table .th, .bienvenida-MBp .table-container .table .td {
+  color: #ffffff;
+  text-align: center;
+  border: 1px solid #ffffff;
 }
-.bienvenida-MBp .th {
-  background-color: #4caf50;
-  color: white;
+.bienvenida-MBp .table-container .table tbody tr:nth-child(odd) {
+  background-color: #646cb0; /* Color para filas impares del tbody */
+  border: 1px solid #ffffff;
+}
+.bienvenida-MBp .table-container .table tbody tr:nth-child(even) {
+  background-color: #858dd1; /* Color para filas pares del tbody */
+  border: 1px solid #ffffff; 
 }
 .bienvenida-MBp .puntaje-DFp {
   width: 33.9rem;
