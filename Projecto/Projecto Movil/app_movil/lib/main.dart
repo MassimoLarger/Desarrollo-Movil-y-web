@@ -41,7 +41,7 @@ class _SplashScreenState extends State<SplashScreen> {
             fit: BoxFit.cover,
           ),
           Positioned(
-            top:0,
+            top: -10, // Ajusta la posición del texto según sea necesario
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -52,17 +52,19 @@ class _SplashScreenState extends State<SplashScreen> {
                       'assets/Vector1.png',
                       fit: BoxFit.cover,
                       width: 383,
-                      height: 350,
+                      height: 370,
                     ),
-                    Text(
-                      'Memorice Quizzer',
-                      style: TextStyle(
-                        fontFamily: 'Roboto',
-                        color: Colors.white,
-                        fontSize: 35,
+                    Positioned(
+                      top: 80,
+                      child: Text(
+                        'Memorice Quizzer',
+                        style: TextStyle(
+                          fontFamily: 'Roboto',
+                          color: Colors.white,
+                          fontSize: 35,
+                        ),
                       ),
                     ),
-
                   ],
                 ),
               ],
@@ -77,8 +79,8 @@ class _SplashScreenState extends State<SplashScreen> {
                   children: [
                     Image.asset(
                       'assets/app-logo.png',
-                      width: 100,
-                      height: 100,
+                      width: 125,
+                      height: 125,
                     ),
                     CircularProgressIndicator(
                       strokeWidth: 2,
@@ -86,20 +88,21 @@ class _SplashScreenState extends State<SplashScreen> {
                     ),
                   ],
                 ),
-                // Alinea la imagen2 en la barra inferior
-                Positioned(
-                  bottom: 0,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SizedBox(width: 10),
-                      Image.asset(
-                        'assets/image2.png',
-                        width: 50,
-                        height: 50,
-                      ),
-                    ],
-                  ),
+              ],
+            ),
+          ),
+          Positioned(
+            left: -15,
+            bottom: 0,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(width: 10),
+                Image.asset(
+                  'assets/Vector2.png',
+                  fit: BoxFit.cover,
+                  width: 383,
+                  height: 330,
                 ),
               ],
             ),
@@ -121,37 +124,100 @@ class LoginPage extends StatelessWidget {
             'assets/Image-Fondo.png',
             fit: BoxFit.cover,
           ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Stack(
+                alignment: Alignment.center,
+                children: [
+                  Image.asset(
+                    'assets/Vector1.png',
+                    fit: BoxFit.cover,
+                    width: 383,
+                    height: 370,
+                  ),
+                  Positioned(
+                    top: 80,
+                    child: Text(
+                      'Memorice Quizzer',
+                      style: TextStyle(
+                        fontFamily: 'Roboto',
+                        color: Colors.white,
+                        fontSize: 35,
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    top: 200,
+                    child: Text(
+                      'Disfruta de agrupar imágenes,',
+                      style: TextStyle(
+                        fontFamily: 'Roboto',
+                        color: Colors.black,
+                        fontSize: 16,
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    top: 220,
+                    child: Text(
+                      'textos y mucho más',
+                      style: TextStyle(
+                        fontFamily: 'Roboto',
+                        color: Colors.black,
+                        fontSize: 16,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
           Container(
             color: Colors.black.withOpacity(0.4),
           ),
-          Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.of(context).pushReplacement(MaterialPageRoute(
-                      builder: (context) => HomePage(),
-                    ));
-                  },
-                  child: Text('Ingresar como Invitado'),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              ElevatedButton.icon(
+                onPressed: () {
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(
+                    builder: (context) => HomePage(),
+                  ));
+                },
+                icon: Image.asset(
+                  'assets/imageI.png',
+                  width: 30,
+                  height: 30,
                 ),
-                SizedBox(height: 20),
-                ElevatedButton(
-                  onPressed: () {
-                    // Acción al presionar el botón de Google
-                  },
-                  child: Text('Ingresar con Google'),
+                label: Text('Ingresar como Invitado'),
+              ),
+              SizedBox(height: 20),
+              ElevatedButton.icon(
+                onPressed: () {
+                  // Acción al presionar el botón de Google
+                },
+                icon: Image.asset(
+                  'assets/imageG.png',
+                  width: 30,
+                  height: 30,
                 ),
-                SizedBox(height: 20),
-                ElevatedButton(
-                  onPressed: () {
-                    // Acción al presionar el botón de Facebook
-                  },
-                  child: Text('Ingresar con Facebook'),
+                label: Text('Ingresar con Google'),
+              ),
+              SizedBox(height: 20),
+              ElevatedButton.icon(
+                onPressed: () {
+                  // Acción al presionar el botón de Facebook
+                },
+                icon: Image.asset(
+                  'assets/imageF.png',
+                  width: 30,
+                  height: 30,
                 ),
-              ],
-            ),
+                label: Text('Ingresar con Facebook'),
+              ),
+              SizedBox(height: 40),
+            ],
           ),
         ],
       ),
