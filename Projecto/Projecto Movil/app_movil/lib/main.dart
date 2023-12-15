@@ -1,7 +1,4 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
 
 void main() {
   runApp(MyApp());
@@ -11,55 +8,289 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: MyHomePage(),
+      home: SplashScreen(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
+class SplashScreen extends StatefulWidget {
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _SplashScreenState createState() => _SplashScreenState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  Future<List<Map<String, dynamic>>> fetchCards() async {
-    final response = await http.get(Uri.parse('http://localhost:3000/cards'));
-
-    if (response.statusCode == 200) {
-      return List<Map<String, dynamic>>.from(json.decode(response.body));
-    } else {
-      throw Exception('Error al cargar las tarjetas');
-    }
+class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    super.initState();
+    // Agrega un retraso de 5 segundos antes de navegar a la siguiente pantalla
+    Future.delayed(Duration(seconds: 5), () {
+      Navigator.of(context).pushReplacement(MaterialPageRoute(
+        builder: (context) => LoginPage(),
+      ));
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Juego de Memoria'),
+      body: Stack(
+        fit: StackFit.expand,
+        children: [
+          Image.asset(
+            'assets/Image-Fondo.png',
+            fit: BoxFit.cover,
+          ),
+          Positioned(
+            top:0,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    Image.asset(
+                      'assets/Vector1.png',
+                      fit: BoxFit.cover,
+                      width: 383,
+                      height: 350,
+                    ),
+                    Text(
+                      'Memorice Quizzer',
+                      style: TextStyle(
+                        fontFamily: 'Roboto',
+                        color: Colors.white,
+                        fontSize: 35,
+                      ),
+                    ),
+
+                  ],
+                ),
+              ],
+            ),
+          ),
+          Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    Image.asset(
+                      'assets/app-logo.png',
+                      width: 100,
+                      height: 100,
+                    ),
+                    CircularProgressIndicator(
+                      strokeWidth: 2,
+                      valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                    ),
+                  ],
+                ),
+                // Alinea la imagen2 en la barra inferior
+                Positioned(
+                  bottom: 0,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SizedBox(width: 10),
+                      Image.asset(
+                        'assets/image2.png',
+                        width: 50,
+                        height: 50,
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
-      body: FutureBuilder<List<Map<String, dynamic>>>(
-        future: fetchCards(),
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return CircularProgressIndicator();
-          } else if (snapshot.hasError) {
-            return Text('Error: ${snapshot.error}');
-          } else {
-            final cards = snapshot.data!;
-            // Renderiza las tarjetas en tu interfaz gráfica
-            return ListView.builder(
-              itemCount: cards.length,
-              itemBuilder: (context, index) {
-                final card = cards[index];
-                return ListTile(
-                  title: Text('ID: ${card['id']}'),
-                  subtitle: Text('Imagen: ${card['image']}'),
-                );
-              },
-            );
-          }
-        },
+    );
+  }
+}
+
+class LoginPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Stack(
+        fit: StackFit.expand,
+        children: [
+          Image.asset(
+            'assets/Image-Fondo.png',
+            fit: BoxFit.cover,
+          ),
+          Container(
+            color: Colors.black.withOpacity(0.4),
+          ),
+          Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).pushReplacement(MaterialPageRoute(
+                      builder: (context) => HomePage(),
+                    ));
+                  },
+                  child: Text('Ingresar como Invitado'),
+                ),
+                SizedBox(height: 20),
+                ElevatedButton(
+                  onPressed: () {
+                    // Acción al presionar el botón de Google
+                  },
+                  child: Text('Ingresar con Google'),
+                ),
+                SizedBox(height: 20),
+                ElevatedButton(
+                  onPressed: () {
+                    // Acción al presionar el botón de Facebook
+                  },
+                  child: Text('Ingresar con Facebook'),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class HomePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Página de Ingreso'),
+      ),
+      body: Container(
+        color: Color(0xFFe9a24c), // Color de fondo
+        child: Column(
+          children: [
+            // Barra superior con 3 logos
+            Container(
+              padding: EdgeInsets.all(10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Image.asset(
+                    'assets/logo1.png',
+                    width: 40,
+                    height: 40,
+                  ),
+                  Image.asset(
+                    'assets/logo2.png',
+                    width: 40,
+                    height: 40,
+                  ),
+                  Image.asset(
+                    'assets/logo3.png',
+                    width: 40,
+                    height: 40,
+                  ),
+                ],
+              ),
+            ),
+            // Logo de la app al centro
+            Center(
+              child: Image.asset(
+                'assets/app_logo.png',
+                width: 100,
+                height: 100,
+              ),
+            ),
+            // Texto "Ingrese sus datos"
+            Text(
+              'Ingrese sus datos',
+              style: TextStyle(
+                fontSize: 20,
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            // Imágenes y texto "Nombre de Jugador"
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Image.asset(
+                  'assets/image3.png',
+                  width: 50,
+                  height: 50,
+                ),
+                Text(
+                  'Nombre de Jugador',
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.white,
+                  ),
+                ),
+                // Rectángulo para ingresar el nombre
+                Container(
+                  width: 150,
+                  height: 40,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: TextField(
+                    decoration: InputDecoration(
+                      border: InputBorder.none,
+                      contentPadding: EdgeInsets.all(8),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            // Texto "Fecha de Nacimiento"
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Image.asset(
+                  'assets/image4.png',
+                  width: 50,
+                  height: 50,
+                ),
+                Text(
+                  'Fecha de Nacimiento',
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.white,
+                  ),
+                ),
+                // Rectángulo para ingresar la fecha de nacimiento
+                Container(
+                  width: 150,
+                  height: 40,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: TextField(
+                    decoration: InputDecoration(
+                      border: InputBorder.none,
+                      contentPadding: EdgeInsets.all(8),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            // Barra inferior con 3 iconos
+            Container(
+              padding: EdgeInsets.all(10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Icon(Icons.settings, color: Colors.white, size: 30),
+                  Icon(Icons.mail, color: Colors.white, size: 30),
+                  Icon(Icons.person, color: Colors.white, size: 30),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
